@@ -1,0 +1,49 @@
+#hoursListContainer {
+  position: absolute;
+  top: 31px;
+  right: 4px;
+  overflow-x: hidden;
+  font-size: 1.15em;
+  user-select: none;
+}
+
+#hoursListContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#hoursListContainer .hoursList {
+  column-count: 2;
+  column-gap: 5px;
+  width: 120px !important;
+}
+
+#hoursListContainer .hoursList .hourListItem {
+  border: 0.5px solid;
+  cursor: pointer;
+  height: 21px;
+}
+
+#hoursListContainer .hoursList .activeHour {
+  color: white;
+  background: #008aad6e;
+  border: 1px solid #000000a6;
+}
+
+#clearButtonContainer {
+  border: 0;
+  color: #a5a5a5;
+  font-size: 13px;
+  line-height: 19px;
+  margin: 1px;
+  height: 20px;
+  width: 50px;
+  position: absolute;
+  right: 33px;
+  top: 3px;
+}
+
+#clearButtonContainer button {
+  background: #b7f93d;
+  color: black;
+  border: none;
+}

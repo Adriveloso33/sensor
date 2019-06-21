@@ -1,0 +1,154 @@
+{
+  "items": [
+    {
+      "title": "Dashboard",
+      "icon": "wdna-dashboard",
+      "route": "/analytics/customreport"
+    },
+    {
+      "title": "Readings",
+      "icon": "wdna-dashboard",
+      "route": "/readings"
+    },
+    {
+      "title": "Sensors",
+      "icon": "wdna-dashboard",
+      "items": [
+        {
+          "title": "Sensors",
+          "route": "/sensors/sensors"
+        },
+        {
+          "title": "Settings",
+          "route": "/sensors/settings"
+        },
+        {
+          "title": "Alarms",
+          "route": "/sensors/alarms"
+        },
+        {
+          "title": "Configurations",
+          "route": "/sensors/configurations"
+        },
+        {
+          "title": "Firmwares",
+          "route": "/sensors/firmwares"
+        },
+        {
+          "title": "Graph",
+          "route": "/sensors/graph"
+        },
+        {
+          "title": "Redirections",
+          "route": "/sensors/redirections"
+        },
+        {
+          "title": "Types",
+          "route": "/sensors/types"
+        },
+        {
+          "title": "Variables",
+          "route": "/sensors/variables"
+        }
+      ]
+    },
+    {
+      "title": "Masters",
+      "icon": "wdna-dashboard",
+      "items": [
+        {
+          "title": "Alarms actions",
+          "route": "/masters/alarmsActions"
+        },
+        {
+          "title": "Customers",
+          "route": "/masters/customers"
+        },
+        {
+          "title": "Companies",
+          "route": "/masters/companies"
+        },
+        {
+          "title": "Action Types",
+          "route": "/masters/actionTypes"
+        },
+        {
+          "title": "Customer Types",
+          "route": "/masters/customerTypes"
+        },
+        {
+          "title": "Log Types",
+          "route": "/masters/logTypes"
+        },
+        {
+          "title": "Module Types",
+          "route": "/masters/moduleTypes"
+        },
+        {
+          "title": "Result Types",
+          "route": "/masters/resultTypes"
+        },
+        {
+          "title": "Users",
+          "route": "/masters/users"
+        }
+      ]
+    },
+    {
+      "title": "System",
+      "icon": "wdna-dashboard",
+      "items": [
+        {
+          "title": "Audit",
+          "route": "/system/audit"
+        },
+        {
+          "title": "Warnings",
+          "route": "/system/warnings"
+        },
+        {
+          "title": "Disk Usage",
+          "route": "/system/diskUsage"
+        },
+        {
+          "title": "Logs",
+          "route": "/system/logs"
+        },
+        {
+          "title": "Parameters",
+          "route": "/system/parameters"
+        }
+      ]
+    },
+    {
+      "title": "Technician",
+      "icon": "wdna-dashboard",
+      "items": [
+        {
+          "title": "Companies",
+          "route": "/technician/companies"
+        },
+        {
+          "title": "Sensors",
+          "route": "/technician/sensors"
+        },
+        {
+          "title": "Pending Customers",
+          "route": "/technician/pendingCustomers"
+        },
+        {
+          "title": "Customers",
+          "route": "/technician/customers"
+        },
+        {
+          "title": "Alarms",
+          "route": "/technician/alarms"
+        },
+        {
+          "title": "Warnings",
+          "route": "/technician/warnings"
+        }
+      ]
+    }
+  ]
+}

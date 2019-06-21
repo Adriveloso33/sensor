@@ -1,0 +1,9 @@
+{
+  "title": "sensors",
+  "sensors": [
+    { "Action": "", "Id": 123, "Sensor": "00002", "Name": "Nevera plancha", "Type": "Type1(AB-S1)" },
+    { "Action": "", "Id": 124, "Sensor": "00013", "Name": "Nevera hornos", "Type": "Type1(AB-S1)" },
+    { "Action": "", "Id": 125, "Sensor": "00054", "Name": "Cocina nevera", "Type": "Type1(AB-S1)" },
+    { "Action": "", "Id": 126, "Sensor": "00070", "Name": "Congelador", "Type": "Type1(AB-S1)" }
+  ]
+}
