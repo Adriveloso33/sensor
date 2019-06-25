@@ -26,6 +26,8 @@ export default function load(props = {}) {
           props: {
             url: `${apiRootUrl}/entropy/dashboard/grid`,
             devicesUrl: `${devicesApiRootUrl}/audit/list`,
+            devicesUrlInsert: `${devicesApiRootUrl}/audit/set`,
+            devicesUrlGet: `${devicesApiRootUrl}/audit/get`,
           },
         },
       ];
