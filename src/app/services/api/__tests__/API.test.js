@@ -21,7 +21,7 @@ describe('TEST API METHODS', function() {
   const api_token = 'wdna_2019';
   const headers = { 'x-authorization': '1991-05-28' };
 
-  const port = 2200;
+  const port = 3500;
   const baseURL = `http://localhost:${port}`;
 
   before(function() {
