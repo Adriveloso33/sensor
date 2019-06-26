@@ -73,6 +73,29 @@ class ActionTypesHoc extends React.Component {
     this.loadTab(rowId);
   };
 
+  onAdd = (value) => {
+    store.dispatch(removeTab('AT'));
+    const id = 'undefined';
+    this.newTab(id);
+  };
+
+  newTab = (newId) => {
+    const tabData = {
+      id: 'AT',
+      active: true,
+      title: 'ActionTypes New',
+      component: ActionTypesForm,
+      props: {
+        report: 'ACTION_TYPES',
+        title: 'ActionTypes',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        newId,
+      },
+    };
+    store.dispatch(addTab(tabData));
+  };
+
   loadTab = (rowId) => {
     const tabData = {
       id: 'AT',
