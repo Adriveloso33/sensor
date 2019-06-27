@@ -12,13 +12,7 @@ export default function Table(props) {
   const { buttons } = props || {};
   const { toogleItem } = buttons || {};
 
-  return (
-    <MainTable
-      toogleItem={toogleItem}
-      actionButtons={actionButtons}
-      toolPanelButtons={toolPanelButtons}
-    />
-  );
+  return <MainTable toogleItem={toogleItem} actionButtons={actionButtons} toolPanelButtons={toolPanelButtons} />;
 }
 
 function getActionsButtons(props) {
@@ -93,6 +87,7 @@ function buttonAdd() {
   return {
     text: 'Add',
     class: 'grid-reset-btn',
+    action: props.onAdd,
   };
 }
 

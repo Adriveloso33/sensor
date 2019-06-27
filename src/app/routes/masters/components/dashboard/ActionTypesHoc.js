@@ -74,14 +74,14 @@ class ActionTypesHoc extends React.Component {
   };
 
   onAdd = (value) => {
-    store.dispatch(removeTab('AT'));
-    const id = 'undefined';
-    this.newTab(id);
+    store.dispatch(removeTab('ATN'));
+    const rowId = value.id || {};
+    this.newTab(rowId);
   };
 
-  newTab = (newId) => {
+  newTab = (rowId) => {
     const tabData = {
-      id: 'AT',
+      id: 'ATN',
       active: true,
       title: 'ActionTypes New',
       component: ActionTypesForm,
@@ -89,8 +89,8 @@ class ActionTypesHoc extends React.Component {
         report: 'ACTION_TYPES',
         title: 'ActionTypes',
         devicesUrlInsert: this.props.devicesUrlInsert,
-        devicesUrlGet: this.props.devicesUrlGet,
-        newId,
+        //devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
       },
     };
     store.dispatch(addTab(tabData));
@@ -131,4 +131,5 @@ export default ActionTypesHoc;
 ActionTypesHoc.propTypes = {
   devicesUrlInsert: PropTypes.string.isRequired,
   devicesUrlGet: PropTypes.string.isRequired,
+  //devicesUrlSet: PropTypes.string.isRequired,
 };
