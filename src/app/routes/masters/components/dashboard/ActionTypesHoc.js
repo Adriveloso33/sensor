@@ -89,7 +89,7 @@ class ActionTypesHoc extends React.Component {
         report: 'ACTION_TYPES',
         title: 'ActionTypes',
         devicesUrlInsert: this.props.devicesUrlInsert,
-        //devicesUrlGet: this.props.devicesUrlGet,
+        devicesUrlGet: this.props.devicesUrlGet,
         rowId,
       },
     };

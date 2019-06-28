@@ -78,6 +78,12 @@ export default class ActionTypesForm extends React.Component {
     });
   };
 
+  onAdd = () => {
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  };
+
   submit = (event) => {
     event.preventDefault();
     const { devicesUrlInsert } = this.props || {};
@@ -136,6 +142,7 @@ export default class ActionTypesForm extends React.Component {
 
   formRender = () => {
     const render = [];
+
     Object.entries(this.state).forEach(([rowKey]) => {
       render.push(this.formItemsRender(rowKey));
     });
@@ -164,7 +171,7 @@ export default class ActionTypesForm extends React.Component {
                 Reset
               </button>
 
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" onClick={this.onAdd} className="btn btn-primary">
                 Save
               </button>
             </div>
