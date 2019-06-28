@@ -1,5 +1,4 @@
 const urlServer = 'http://localhost:8000';
-urlSwagger = 'http://lan-dev-test:8080';
 
 const SmartadminConfig = {
   menu_speed: 200,
@@ -8,7 +7,6 @@ const SmartadminConfig = {
 
   apiRootUrl: `${urlServer}/api`,
   htmlRootUrl: `${urlServer}/html`,
-  devicesUrlInsert: `${urlSwagger}`,
 
   apiAppKey: '76a49534d2ed2d75e9b39203afd31ab03c58358d',
   buildUrl: 'build',
