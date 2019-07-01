@@ -122,7 +122,7 @@ export default class CustomerTypesFormNew extends React.Component {
         <form className="smart-form" onSubmit={this.submit}>
           <fieldset>
             <label className="label" style={{ fontSize: '1.7rem', padding: '10px' }}>
-              Customer Type Edit ID: {this.state.id}
+              Customer Type New
             </label>
             <div className="row">{this.formRender()}</div>
           </fieldset>
