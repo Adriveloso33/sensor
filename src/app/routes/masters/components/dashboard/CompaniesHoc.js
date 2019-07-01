@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import CompaniesForm from '../forms/companies/CompaniesForm';
+import CompaniesFormNew from '../forms/companies/CompaniesFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';

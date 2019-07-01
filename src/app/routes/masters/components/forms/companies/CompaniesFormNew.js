@@ -5,9 +5,8 @@ import UiValidate from '../../../../../components/forms/validation/UiValidate';
 import { errorMessage, successMessage, warningMessage } from '../../../../../components/notifications/index';
 import { getErrorMessage } from '../../../../../components/utils/ResponseHandler';
 import { initProcess, finishProcess } from '../../../../../components/scheduler/SchedulerActions';
-import { checkAuthError } from '../../../../../components/auth/actions';
 
-export default class CompaniesForm extends React.Component {
+export default class CompaniesFormNew extends React.Component {
   constructor(props) {
     super(props);
 
@@ -73,7 +72,7 @@ export default class CompaniesForm extends React.Component {
     devicesApi
       .post(devicesUrlInsert, data)
       .then(() => {
-        successMessage('Success', 'Sensor successfully edited', 5000);
+        successMessage('Success', 'Sensor successfully created', 5000);
         this.finishSaveLoading();
       })
       .catch((error) => {
@@ -87,13 +86,6 @@ export default class CompaniesForm extends React.Component {
   getRandomInt = () => {
     const number = (Math.random() * 1000).toFixed(0);
     return parseInt(number, 10);
-  };
-
-  handleChange = (event) => {
-    //const { value, name } = event.target;
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
   };
 
   formItemsRender = (rowKey) => {
