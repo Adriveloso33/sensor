@@ -78,12 +78,6 @@ export default class ActionTypesForm extends React.Component {
     });
   };
 
-  onAdd = () => {
-    if (this.props.onClick) {
-      this.props.onClick();
-    }
-  };
-
   submit = (event) => {
     event.preventDefault();
     const { devicesUrlInsert } = this.props || {};
