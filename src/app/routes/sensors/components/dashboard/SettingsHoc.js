@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Table from './Table';
 
 import SettingsForm from '../forms/settings/SettingsForm';
+import SettingsFormNew from '../forms/settings/SettingsFormNew';
+
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
 import { checkAuthError } from '../../../../components/auth/actions';
@@ -79,6 +81,29 @@ class SettingsHoc extends React.Component {
       active: true,
       title: 'Settings Edit',
       component: SettingsForm,
+      props: {
+        report: 'SETTINGS',
+        title: 'Settings',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'Settings New',
+      component: SettingsFormNew,
       props: {
         report: 'SETTINGS',
         title: 'Settings',
