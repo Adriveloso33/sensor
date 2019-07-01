@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import LogTypesForm from '../forms/logTypes/LogTypesForm';
+import LogTypesFormNew from '../forms/logTypes/LogTypesFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -77,6 +78,29 @@ class LogTypesHoc extends React.Component {
       active: true,
       title: 'logTypes Edit',
       component: LogTypesForm,
+      props: {
+        report: 'LOG_TYPES',
+        title: 'logTypes',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'logTypes New',
+      component: LogTypesFormNew,
       props: {
         report: 'LOG_TYPES',
         title: 'logTypes',
