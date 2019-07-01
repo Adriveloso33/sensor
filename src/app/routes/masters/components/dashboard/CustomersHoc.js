@@ -74,12 +74,35 @@ class CustomersHoc extends React.Component {
     this.loadTab(rowId);
   };
 
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
   loadTab = (rowId) => {
     const tabData = {
       id: getStr(),
       active: true,
       title: 'Customers Edit',
       component: CustomersForm,
+      props: {
+        report: 'CUSTOMERS',
+        title: 'Customers',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'Customers New',
+      component: CustomersFormNew,
       props: {
         report: 'CUSTOMERS',
         title: 'Customers',

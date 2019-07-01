@@ -56,6 +56,15 @@ function buttonEdit(props) {
   };
 }
 
+// function buttonDelete(props) {
+//   return {
+//     text: 'Delete',
+//     icon: 'glyphicon glyphicon-remove',
+//     action: this.deleteAction,
+//     class: 'btn btn-danger btn-xs',
+//   };
+// }
+
 function buttonDuplicate() {
   return {
     text: 'Duplicate',
