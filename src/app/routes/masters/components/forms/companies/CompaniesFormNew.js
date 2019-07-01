@@ -13,6 +13,7 @@ export default class CompaniesFormNew extends React.Component {
     this.state = {
       loading: false,
       saveLoading: false,
+      name: '',
     };
     this.defaultValues = {};
   }

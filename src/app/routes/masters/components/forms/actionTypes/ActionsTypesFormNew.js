@@ -14,6 +14,7 @@ export default class ActionTypesFormNew extends React.Component {
     this.state = {
       loading: false,
       saveLoading: false,
+      name: '',
     };
     this.defaultValues = {};
   }
