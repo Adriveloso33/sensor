@@ -100,7 +100,7 @@ class CustomerTypesHoc extends React.Component {
       id: getStr(),
       active: true,
       title: 'CustomerTypes New',
-      component: CustomerTypesForm,
+      component: CustomerTypesFormNew,
       props: {
         report: 'CUSTOMER_TYPES',
         title: 'CustomerTypes',
