@@ -5,7 +5,6 @@ import UiValidate from '../../../../../components/forms/validation/UiValidate';
 import { errorMessage, successMessage, warningMessage } from '../../../../../components/notifications/index';
 import { getErrorMessage } from '../../../../../components/utils/ResponseHandler';
 import { initProcess, finishProcess } from '../../../../../components/scheduler/SchedulerActions';
-import { checkAuthError } from '../../../../../components/auth/actions';
 
 export default class SettingsFormNew extends React.Component {
   constructor(props) {
@@ -58,7 +57,6 @@ export default class SettingsFormNew extends React.Component {
   };
 
   handleChange = (event) => {
-    //const { value, name } = event.target;
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -71,7 +69,7 @@ export default class SettingsFormNew extends React.Component {
       id: this.getRandomInt(),
       name: this.state.name,
       sensor_id: this.state.sensor_id,
-      typesensorvariable_id: this.startLoading.typesensorvariable_id,
+      typesensorvariable_id: this.state.typesensorvariable_id,
     };
     this.startSaveLoading();
     devicesApi
@@ -86,6 +84,11 @@ export default class SettingsFormNew extends React.Component {
         errorMessage('Error', errorMsg);
         this.finishSaveLoading();
       });
+  };
+
+  getRandomInt = () => {
+    const number = (Math.random() * 1000).toFixed(0);
+    return parseInt(number, 10);
   };
 
   formItemsRender = (rowKey) => {
