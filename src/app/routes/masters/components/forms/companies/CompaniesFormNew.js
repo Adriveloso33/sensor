@@ -5,9 +5,9 @@ import UiValidate from '../../../../../components/forms/validation/UiValidate';
 import { errorMessage, successMessage, warningMessage } from '../../../../../components/notifications/index';
 import { getErrorMessage } from '../../../../../components/utils/ResponseHandler';
 import { initProcess, finishProcess } from '../../../../../components/scheduler/SchedulerActions';
-import { getStr } from '../../../../../helpers/TextHelper';
+import { checkAuthError } from '../../../../../components/auth/actions';
 
-export default class ActionTypesFormNew extends React.Component {
+export default class CompaniesForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -61,17 +61,10 @@ export default class ActionTypesFormNew extends React.Component {
     });
   };
 
-  startLoading = () => {
-    store.dispatch(initProcess(this.pid));
-  };
-
-  finishLoading = () => {
-    store.dispatch(finishProcess(this.pid));
-  };
-
   submit = (event) => {
     event.preventDefault();
     const { devicesUrlInsert } = this.props || {};
+    //const data = _.cloneDeep(this.state);
     const data = {
       id: this.getRandomInt(),
       name: this.state.name,
@@ -80,7 +73,7 @@ export default class ActionTypesFormNew extends React.Component {
     devicesApi
       .post(devicesUrlInsert, data)
       .then(() => {
-        successMessage('Success', 'Sensor successfully created', 5000);
+        successMessage('Success', 'Sensor successfully edited', 5000);
         this.finishSaveLoading();
       })
       .catch((error) => {
@@ -96,13 +89,20 @@ export default class ActionTypesFormNew extends React.Component {
     return parseInt(number, 10);
   };
 
+  handleChange = (event) => {
+    //const { value, name } = event.target;
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
   formItemsRender = (rowKey) => {
     const name = `${rowKey}`;
     const placeholder = `${rowKey}`;
     const label = `${rowKey}`;
     const value = this.state[name];
 
-    if (name !== 'id') {
+    if (name === 'name') {
       return (
         <section key={rowKey} className="col col-3">
           <label className="label">{label}</label>
@@ -117,7 +117,6 @@ export default class ActionTypesFormNew extends React.Component {
 
   formRender = () => {
     const render = [];
-
     Object.entries(this.state).forEach(([rowKey]) => {
       render.push(this.formItemsRender(rowKey));
     });
@@ -131,8 +130,7 @@ export default class ActionTypesFormNew extends React.Component {
         <form className="smart-form" onSubmit={this.submit}>
           <fieldset>
             <label className="label" style={{ fontSize: '1.7rem', padding: '10px' }}>
-              {/* Action Type Edit ID: {this.state.id} */}
-              Action Type NEW:
+              Company NEW:
             </label>
             <div className="row">{this.formRender()}</div>
           </fieldset>
@@ -142,6 +140,7 @@ export default class ActionTypesFormNew extends React.Component {
               {this.state.saveLoading && (
                 <img className="loading-wdna" alt="loading" src="assets/img/loading-wdna.gif" />
               )}
+
               <button type="button" onClick={this.onReset} className="btn btn-primary">
                 Reset
               </button>

@@ -8,6 +8,7 @@ import { checkAuthError } from '../../../../components/auth/actions';
 import { addTab, removeTab } from '../../../../components/tabs/TabsActions';
 
 import ActionTypesForm from '../forms/actionTypes/ActionTypesForm';
+import ActionTypesFormNew from '../forms/actionTypes/ActionsTypesFormNew';
 
 class ActionTypesHoc extends React.Component {
   constructor(props) {
@@ -84,7 +85,7 @@ class ActionTypesHoc extends React.Component {
       id: 'ATN',
       active: true,
       title: 'ActionTypes New',
-      component: ActionTypesForm,
+      component: ActionTypesFormNew,
       props: {
         report: 'ACTION_TYPES',
         title: 'ActionTypes',

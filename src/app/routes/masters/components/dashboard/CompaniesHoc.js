@@ -92,6 +92,29 @@ class CompaniesHoc extends React.Component {
     store.dispatch(addTab(tabData));
   };
 
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'Companies New',
+      component: CompaniesFormNew,
+      props: {
+        report: 'COMPANIES',
+        title: 'Companies',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
   render() {
     return (
       <Table

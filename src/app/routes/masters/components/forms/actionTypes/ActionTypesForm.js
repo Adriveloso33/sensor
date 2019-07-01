@@ -150,8 +150,7 @@ export default class ActionTypesForm extends React.Component {
         <form className="smart-form" onSubmit={this.submit}>
           <fieldset>
             <label className="label" style={{ fontSize: '1.7rem', padding: '10px' }}>
-              {/* Action Type Edit ID: {this.state.id} */}
-              Action Type NEW: {'undefined'}
+              Action Type Edit ID: {this.state.id}
             </label>
             <div className="row">{this.formRender()}</div>
           </fieldset>
