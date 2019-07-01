@@ -5,17 +5,16 @@ import UiValidate from '../../../../../components/forms/validation/UiValidate';
 import { errorMessage, successMessage, warningMessage } from '../../../../../components/notifications/index';
 import { getErrorMessage } from '../../../../../components/utils/ResponseHandler';
 import { initProcess, finishProcess } from '../../../../../components/scheduler/SchedulerActions';
+import { checkAuthError } from '../../../../../components/auth/actions';
 
-export default class SettingsFormNew extends React.Component {
+export default class FirmwareFormNew extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       loading: false,
       saveLoading: false,
-      name: '',
-      sensor_id: '',
-      typesensorvariable_id: '',
+      file: '',
     };
     this.defaultValues = {};
   }
@@ -52,11 +51,18 @@ export default class SettingsFormNew extends React.Component {
     });
   };
 
+  onReset = () => {
+    this.setState({
+      ...this.defaultValues,
+    });
+  };
+
   handleClick = (e) => {
     console.log('Button was clicked');
   };
 
   handleChange = (event) => {
+    //const { value, name } = event.target;
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -65,17 +71,16 @@ export default class SettingsFormNew extends React.Component {
   submit = (event) => {
     event.preventDefault();
     const { devicesUrlInsert } = this.props || {};
+    //const data = _.cloneDeep(this.state);
     const data = {
       id: this.getRandomInt(),
-      name: this.state.name,
-      sensor_id: this.state.sensor_id,
-      typesensorvariable_id: this.state.typesensorvariable_id,
+      file: this.state.file,
     };
     this.startSaveLoading();
     devicesApi
       .post(devicesUrlInsert, data)
       .then(() => {
-        successMessage('Success', 'Sensor successfully created', 5000);
+        successMessage('Success', 'Sensor successfully edited', 5000);
         this.finishSaveLoading();
       })
       .catch((error) => {
@@ -96,7 +101,7 @@ export default class SettingsFormNew extends React.Component {
     const placeholder = `${rowKey}`;
     const label = `${rowKey}`;
     const value = this.state[name];
-    if (name === 'name') return null;
+    if (name === 'id') return null;
     if (name === 'loading') return null;
     if (name === 'saveLoading') return null;
     return (
@@ -125,7 +130,7 @@ export default class SettingsFormNew extends React.Component {
         <form className="smart-form" onSubmit={this.submit}>
           <fieldset>
             <label className="label" style={{ fontSize: '1.7rem', padding: '10px' }}>
-              Settings New:
+              Firmware New
             </label>
             <div className="row">{this.formRender()}</div>
           </fieldset>

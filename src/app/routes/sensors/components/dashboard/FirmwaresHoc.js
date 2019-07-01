@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import FirmwareForm from '../forms/firmwares/FirmwaresForm';
+import FirmwareFormNew from '../forms/firmwares/FirmwaresFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -79,6 +80,29 @@ class FirmwaresHoc extends React.Component {
       active: true,
       title: 'Firmwares Edit',
       component: FirmwareForm,
+      props: {
+        report: 'FIRMWARES',
+        title: 'Firmwares',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'Firmwares New',
+      component: FirmwareFormNew,
       props: {
         report: 'FIRMWARES',
         title: 'Firmwares',
