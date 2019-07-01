@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import CustomerTypesForm from '../forms/customerTypes/CustomerTypesForm';
+import CustomerTypesFormNew from '../forms/customerTypes/CustomerTypesFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -76,6 +77,29 @@ class CustomerTypesHoc extends React.Component {
       id: getStr(),
       active: true,
       title: 'CustomerTypes Edit',
+      component: CustomerTypesForm,
+      props: {
+        report: 'CUSTOMER_TYPES',
+        title: 'CustomerTypes',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  newTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'CustomerTypes New',
       component: CustomerTypesForm,
       props: {
         report: 'CUSTOMER_TYPES',
