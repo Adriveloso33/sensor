@@ -79,7 +79,7 @@ class FirmwaresHoc extends React.Component {
       id: getStr(),
       active: true,
       title: 'Firmwares Edit',
-      component: FirmwareForm,
+      component: FirmwaresForm,
       props: {
         report: 'FIRMWARES',
         title: 'Firmwares',
@@ -102,7 +102,7 @@ class FirmwaresHoc extends React.Component {
       id: getStr(),
       active: true,
       title: 'Firmwares New',
-      component: FirmwareFormNew,
+      component: FirmwaresFormNew,
       props: {
         report: 'FIRMWARES',
         title: 'Firmwares',
