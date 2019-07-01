@@ -68,7 +68,7 @@ export default class SettingsFormNew extends React.Component {
     const data = {
       id: this.getRandomInt(),
       formula: this.state.formula,
-      sensor_id: this.state.sensor_id,
+      //sensor_id: this.state.sensor_id,
       typesensorvariable_id: this.state.typesensorvariable_id,
     };
     this.startSaveLoading();
