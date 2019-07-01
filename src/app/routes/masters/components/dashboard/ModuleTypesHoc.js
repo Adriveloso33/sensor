@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import ModuleTypesForm from '../forms/moduleTypes/ModuleTypesForm';
+import ModuleTypesFormNew from '../forms/moduleTypes/ModuleTypesFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -78,6 +79,29 @@ class ModuleTypesHoc extends React.Component {
       active: true,
       title: 'ModuleTypes Edit',
       component: ModuleTypesForm,
+      props: {
+        report: 'MODULE_TYPES',
+        title: 'ModuleTypes',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  loadTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'ModuleTypes New',
+      component: ModuleTypesFormNew,
       props: {
         report: 'MODULE_TYPES',
         title: 'ModuleTypes',

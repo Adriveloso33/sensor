@@ -7,7 +7,7 @@ import { getErrorMessage } from '../../../../../components/utils/ResponseHandler
 import { initProcess, finishProcess } from '../../../../../components/scheduler/SchedulerActions';
 import { checkAuthError } from '../../../../../components/auth/actions';
 
-export default class LogTypesFormNew extends React.Component {
+export default class ModuleTypesFormNew extends React.Component {
   constructor(props) {
     super(props);
 
@@ -56,7 +56,6 @@ export default class LogTypesFormNew extends React.Component {
   };
 
   handleChange = (event) => {
-    //const { value, name } = event.target;
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -73,7 +72,7 @@ export default class LogTypesFormNew extends React.Component {
     devicesApi
       .post(devicesUrlInsert, data)
       .then(() => {
-        successMessage('Success', 'Sensor successfully created', 5000);
+        successMessage('Success', 'Sensor successfully edited', 5000);
         this.finishSaveLoading();
       })
       .catch((error) => {
@@ -123,14 +122,16 @@ export default class LogTypesFormNew extends React.Component {
         <form className="smart-form" onSubmit={this.submit}>
           <fieldset>
             <label className="label" style={{ fontSize: '1.7rem', padding: '10px' }}>
-              Log Type New:
+              Module Type New:
             </label>
             <div className="row">{this.formRender()}</div>
           </fieldset>
 
           <footer>
             <div className="text-right">
-              {this.saveLoading && <img className="loading-wdna" alt="loading" src="assets/img/loading-wdna.gif" />}
+              {this.state.saveLoading && (
+                <img className="loading-wdna" alt="loading" src="assets/img/loading-wdna.gif" />
+              )}
 
               <button type="button" onClick={this.onReset} className="btn btn-primary">
                 Reset
