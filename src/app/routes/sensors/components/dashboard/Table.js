@@ -88,7 +88,7 @@ function buttonGraph() {
   };
 }
 
-function buttonAdd() {
+function buttonAdd(props) {
   return {
     text: 'Add',
     class: 'grid-reset-btn',

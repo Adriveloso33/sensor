@@ -51,12 +51,6 @@ export default class FirmwareFormNew extends React.Component {
     });
   };
 
-  onReset = () => {
-    this.setState({
-      ...this.defaultValues,
-    });
-  };
-
   handleClick = (e) => {
     console.log('Button was clicked');
   };
@@ -80,7 +74,7 @@ export default class FirmwareFormNew extends React.Component {
     devicesApi
       .post(devicesUrlInsert, data)
       .then(() => {
-        successMessage('Success', 'Sensor successfully edited', 5000);
+        successMessage('Success', 'Sensor successfully created', 5000);
         this.finishSaveLoading();
       })
       .catch((error) => {

@@ -13,8 +13,8 @@ export default class SettingsFormNew extends React.Component {
     this.state = {
       loading: false,
       saveLoading: false,
-      name: '',
-      sensor_id: '',
+      formula: '',
+      //sensor_id: '',
       typesensorvariable_id: '',
     };
     this.defaultValues = {};
@@ -67,7 +67,7 @@ export default class SettingsFormNew extends React.Component {
     const { devicesUrlInsert } = this.props || {};
     const data = {
       id: this.getRandomInt(),
-      name: this.state.name,
+      formula: this.state.formula,
       sensor_id: this.state.sensor_id,
       typesensorvariable_id: this.state.typesensorvariable_id,
     };

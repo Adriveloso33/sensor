@@ -62,13 +62,13 @@ export default class ActionTypesFormNew extends React.Component {
     });
   };
 
-  startLoading = () => {
-    store.dispatch(initProcess(this.pid));
-  };
+  // startLoading = () => {
+  //   store.dispatch(initProcess(this.pid));
+  // };
 
-  finishLoading = () => {
-    store.dispatch(finishProcess(this.pid));
-  };
+  // finishLoading = () => {
+  //   store.dispatch(finishProcess(this.pid));
+  // };
 
   submit = (event) => {
     event.preventDefault();
