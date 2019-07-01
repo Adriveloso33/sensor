@@ -95,7 +95,7 @@ class ResultTypesHoc extends React.Component {
     this.newTab(rowId);
   };
 
-  loadTab = (rowId) => {
+  newTab = (rowId) => {
     const tabData = {
       id: getStr(),
       active: true,
