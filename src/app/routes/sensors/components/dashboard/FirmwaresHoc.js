@@ -121,7 +121,7 @@ class FirmwaresHoc extends React.Component {
         data={this.state.data}
         buttons={this.config.buttons}
         onEdit={this.onEdit}
-        onAdd={this.onEdit}
+        onAdd={this.onAdd}
         loading={this.state.loading}
       />
     );

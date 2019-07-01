@@ -91,6 +91,7 @@ function buttonGraph() {
 function buttonAdd() {
   return {
     text: 'Add',
+    icon: 'glyphicon glyphicon-duplicate',
     class: 'grid-reset-btn',
   };
 }
