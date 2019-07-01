@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import ResultTypesForm from '../forms/resultTypes/ResultTypesForm';
+import ResultTypesFormNew from '../forms/resultTypes/ResultTypesFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -77,6 +78,29 @@ class ResultTypesHoc extends React.Component {
       active: true,
       title: 'ResultTypes Edit',
       component: ResultTypesForm,
+      props: {
+        report: 'RESULT_TYPES',
+        title: 'ResultTypes',
+        devicesUrlInsert: this.props.devicesUrlInsert,
+        devicesUrlGet: this.props.devicesUrlGet,
+        rowId,
+      },
+    };
+
+    store.dispatch(addTab(tabData));
+  };
+
+  onAdd = (value) => {
+    const rowId = value.id || {};
+    this.newTab(rowId);
+  };
+
+  loadTab = (rowId) => {
+    const tabData = {
+      id: getStr(),
+      active: true,
+      title: 'ResultTypes New',
+      component: ResultTypesFormNew,
       props: {
         report: 'RESULT_TYPES',
         title: 'ResultTypes',
