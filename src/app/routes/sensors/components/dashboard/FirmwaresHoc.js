@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from './Table';
 import FirmwareForm from '../forms/firmwares/FirmwaresForm';
-import FirmwareFormNew from '../forms/firmwares/FirmwaresFormNew';
+import FirmwaresFormNew from '../forms/firmwares/FirmwaresFormNew';
 
 import { initProcess, finishProcess } from '../../../../components/scheduler/SchedulerActions';
 import { errorMessage, warningMessage } from '../../../../components/notifications';
@@ -79,7 +79,7 @@ class FirmwaresHoc extends React.Component {
       id: getStr(),
       active: true,
       title: 'Firmwares Edit',
-      component: FirmwaresForm,
+      component: FirmwareForm,
       props: {
         report: 'FIRMWARES',
         title: 'Firmwares',
