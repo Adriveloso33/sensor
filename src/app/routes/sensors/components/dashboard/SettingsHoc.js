@@ -79,7 +79,7 @@ class SettingsHoc extends React.Component {
     const tabData = {
       id: getStr(),
       active: true,
-      title: 'Settings Edit Pruebassssssss',
+      title: 'Settings Edit',
       component: SettingsForm,
       props: {
         report: 'SETTINGS',
@@ -122,7 +122,7 @@ class SettingsHoc extends React.Component {
         data={this.state.data}
         buttons={this.config.buttons}
         onEdit={this.onEdit}
-        onAdd={this.onAdd}
+        onAdd={this.onEdit}
         loading={this.state.loading}
       />
     );
